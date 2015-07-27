@@ -450,6 +450,16 @@ function GetConfigJson() {
 }
 
 /**
+ * UpdateConfig Action
+ * Add by Tqc
+ *
+ */
+function UpdateConfig()
+{
+	UpdateConfig.super_.call(this,'UpdateConfig');
+}
+
+/**
  * GetVar Action.
  * @constructor
  * @see Action(String)
@@ -1182,6 +1192,7 @@ util.inherits(Action, message.Message);
         ExtensionState,
         GetConfig,
         GetConfigJson,
+		UpdateConfig,
         GetVar,
         SetVar,
         JabberSend,
