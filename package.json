@@ -1,9 +1,8 @@
 {
   "author": "tqcenglish <tqcenglish@gmail.com> (http://tqcenglish.github.com/)",
-  "name": "namiCC",
-  "description": "fork https://github.com/marcelog/Nami
-    An asterisk manager interface client, uses EventEmitter to communicate events, will allow you to send actions, and receive responses (and associated events), and also receive async events from server",
-  "version": "0.6.7",
+  "name": "nami-cc",
+  "description": "fork https://github.com/marcelog/Nami An asterisk manager interface client, uses EventEmitter to communicate events, will allow you to send actions, and receive responses (and associated events), and also receive async events from server",
+  "version": "0.6.8",
   "homepage": "https://github.com/tqcenglish/Nami",
   "keywords": [
     "asterisk",

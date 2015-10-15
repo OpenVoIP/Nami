@@ -218,6 +218,6 @@ making reconnections a breeze.
  * Moshe Brevda for his contributions
 
 # 根据CC项目 Fork Nami
--  修改package.json,  重命名 NamiCC  发布到 NAM.
+-  修改package.json,  重命名 nami-cc  发布到 NAM.
 -  添加相关 action
 -  删除冗余日志
