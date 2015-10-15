@@ -1,0 +1,30 @@
+{
+  "author": "Marcelo Gornstein <marcelog@gmail.com> (http://marcelog.github.com/)",
+  "name": "nami",
+  "description": "An asterisk manager interface client, uses EventEmitter to communicate events, will allow you to send actions, and receive responses (and associated events), and also receive async events from server",
+  "version": "0.6.7",
+  "homepage": "https://github.com/marcelog/Nami",
+  "keywords": [
+    "asterisk",
+    "manager",
+    "interface",
+    "nami",
+    "action",
+    "response",
+    "event",
+    "node"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/marcelog/Nami.git"
+  },
+  "main": "src/nami",
+  "scripts": {
+    "test": "index"
+  },
+  "engines" : { "node" : ">=0.6.5" },
+  "dependencies": {
+    "log4js": "0.3.9"
+  },
+  "devDependencies": {}
+}
