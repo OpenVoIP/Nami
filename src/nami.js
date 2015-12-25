@@ -253,7 +253,7 @@ Nami.prototype.initializeSocket = function () {
     }
 
     this.socket = new net.Socket();
-    this.socket.setEncoding('ascii');
+    this.socket.setEncoding('utf8');
 
     var baseEvent = 'namiConnection';
 
@@ -327,4 +327,3 @@ exports.Nami = Nami;
 exports.Actions = action;
 exports.Event = namiEvents;
 exports.Response = namiResponse;
-
