@@ -41,10 +41,10 @@ function Action(name) {
 }
 
 var ActionUniqueId = (function() {
-	var nextId = 0;
-	return function() {
-		return nextId++;
-	}
+    var nextId = 0;
+    return function() {
+        return nextId++;
+    }
 })();
 
 /**
@@ -69,7 +69,7 @@ function Login(username, secret) {
  * @augments Action
  */
 function CoreShowChannels() {
-	CoreShowChannels.super_.call(this, 'CoreShowChannels');
+    CoreShowChannels.super_.call(this, 'CoreShowChannels');
 }
 
 /**
@@ -80,7 +80,7 @@ function CoreShowChannels() {
  * @augments Action
  */
 function Ping() {
-	Ping.super_.call(this, 'Ping');
+    Ping.super_.call(this, 'Ping');
 }
 
 /**
@@ -92,7 +92,7 @@ function Ping() {
  * @property {String} Channel Channel to hangup.
  */
 function Hangup() {
-	Hangup.super_.call(this, 'Hangup');
+    Hangup.super_.call(this, 'Hangup');
 }
 
 /**
@@ -103,7 +103,7 @@ function Hangup() {
  * @augments Action
  */
 function CoreStatus() {
-	CoreStatus.super_.call(this, 'CoreStatus');
+    CoreStatus.super_.call(this, 'CoreStatus');
 }
 
 /**
@@ -116,7 +116,7 @@ function CoreStatus() {
  * if you want to get all channels
  */
 function Status() {
-	Status.super_.call(this, 'Status');
+    Status.super_.call(this, 'Status');
 }
 
 /**
@@ -127,7 +127,7 @@ function Status() {
  * @augments Action
  */
 function DahdiShowChannels() {
-	DahdiShowChannels.super_.call(this, 'DahdiShowChannels');
+    DahdiShowChannels.super_.call(this, 'DahdiShowChannels');
 }
 
 /**
@@ -138,7 +138,7 @@ function DahdiShowChannels() {
  * @augments Action
  */
 function CoreSettings() {
-	CoreSettings.super_.call(this, 'CoreSettings');
+    CoreSettings.super_.call(this, 'CoreSettings');
 }
 
 /**
@@ -149,7 +149,7 @@ function CoreSettings() {
  * @augments Action
  */
 function ListCommands() {
-	ListCommands.super_.call(this, 'ListCommands');
+    ListCommands.super_.call(this, 'ListCommands');
 }
 
 /**
@@ -160,7 +160,7 @@ function ListCommands() {
  * @augments Action
  */
 function Logoff() {
-	Logoff.super_.call(this, 'Logoff');
+    Logoff.super_.call(this, 'Logoff');
 }
 
 /**
@@ -173,7 +173,7 @@ function Logoff() {
  * @property {Integer} Timeout in seconds.
  */
 function AbsoluteTimeout() {
-	AbsoluteTimeout.super_.call(this, 'AbsoluteTimeout');
+    AbsoluteTimeout.super_.call(this, 'AbsoluteTimeout');
 }
 
 /**
@@ -185,7 +185,14 @@ function AbsoluteTimeout() {
  * @property {String} Peer SIP peer name
  */
 function SipShowPeer() {
-	SipShowPeer.super_.call(this, 'SIPshowpeer');
+    SipShowPeer.super_.call(this, 'SIPshowpeer');
+}
+/*
+ * Add by Tqc
+ * @see <a href="https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+ManagerAction_SIPpeerstatus">SIPpeerstatus</a>
+ */
+function SIPpeerstatus(){
+    SIPpeerstatus.super_.call(this, 'SIPpeerstatus');
 }
 
 /**
@@ -196,7 +203,7 @@ function SipShowPeer() {
  * @augments Action
  */
 function SipShowRegistry() {
-	SipShowRegistry.super_.call(this, 'SIPshowregistry');
+    SipShowRegistry.super_.call(this, 'SIPshowregistry');
 }
 
 /**
@@ -208,7 +215,7 @@ function SipShowRegistry() {
  * @property {String} Peer SIP peer name
  */
 function SipQualifyPeer() {
-	SipQualifyPeer.super_.call(this, 'SIPqualifypeer');
+    SipQualifyPeer.super_.call(this, 'SIPqualifypeer');
 }
 
 /**
@@ -219,7 +226,7 @@ function SipQualifyPeer() {
  * @augments Action
  */
 function SipPeers() {
-	SipPeers.super_.call(this, 'SIPpeers');
+    SipPeers.super_.call(this, 'SIPpeers');
 }
 
 /**
@@ -232,7 +239,7 @@ function SipPeers() {
  * @augments Action
  */
 function AgentLogoff() {
-	AgentLogoff.super_.call(this, 'AgentLogoff');
+    AgentLogoff.super_.call(this, 'AgentLogoff');
 }
 
 /**
@@ -243,7 +250,7 @@ function AgentLogoff() {
  * @augments Action
  */
 function Agents() {
-	Agents.super_.call(this, 'Agents');
+    Agents.super_.call(this, 'Agents');
 }
 
 /**
@@ -258,7 +265,7 @@ function Agents() {
  * @augments Action
  */
 function AttendedTransfer() {
-	AttendedTransfer.super_.call(this, 'Atxfer');
+    AttendedTransfer.super_.call(this, 'Atxfer');
 }
 
 /**
@@ -271,7 +278,7 @@ function AttendedTransfer() {
  * @augments Action
  */
 function ChangeMonitor() {
-	ChangeMonitor.super_.call(this, 'ChangeMonitor');
+    ChangeMonitor.super_.call(this, 'ChangeMonitor');
 }
 
 /**
@@ -283,7 +290,7 @@ function ChangeMonitor() {
  * @augments Action
  */
 function Command() {
-	Command.super_.call(this, 'Command');
+    Command.super_.call(this, 'Command');
 }
 
 /**
@@ -295,7 +302,7 @@ function Command() {
  * @augments Action
  */
 function CreateConfig() {
-	CreateConfig.super_.call(this, 'CreateConfig');
+    CreateConfig.super_.call(this, 'CreateConfig');
 }
 
 /**
@@ -308,7 +315,7 @@ function CreateConfig() {
  * @augments Action
  */
 function DahdiDialOffHook() {
-	DahdiDialOffHook.super_.call(this, 'DahdiDialOffHook');
+    DahdiDialOffHook.super_.call(this, 'DahdiDialOffHook');
 }
 
 /**
@@ -320,7 +327,7 @@ function DahdiDialOffHook() {
  * @augments Action
  */
 function DahdiDndOff() {
-	DahdiDndOff.super_.call(this, 'DahdiDndOff');
+    DahdiDndOff.super_.call(this, 'DahdiDndOff');
 }
 
 /**
@@ -332,7 +339,7 @@ function DahdiDndOff() {
  * @augments Action
  */
 function DahdiDndOn() {
-	DahdiDndOn.super_.call(this, 'DahdiDndOn');
+    DahdiDndOn.super_.call(this, 'DahdiDndOn');
 }
 
 /**
@@ -344,7 +351,7 @@ function DahdiDndOn() {
  * @augments Action
  */
 function DahdiHangup() {
-	DahdiHangup.super_.call(this, 'DahdiHangup');
+    DahdiHangup.super_.call(this, 'DahdiHangup');
 }
 
 /**
@@ -355,7 +362,7 @@ function DahdiHangup() {
  * @augments Action
  */
 function DahdiRestart() {
-	DahdiRestart.super_.call(this, 'DahdiRestart');
+    DahdiRestart.super_.call(this, 'DahdiRestart');
 }
 
 /**
@@ -368,7 +375,7 @@ function DahdiRestart() {
  * @augments Action
  */
 function DbDel() {
-	DbDel.super_.call(this, 'DbDel');
+    DbDel.super_.call(this, 'DbDel');
 }
 
 /**
@@ -381,7 +388,7 @@ function DbDel() {
  * @augments Action
  */
 function DbDeltree() {
-	DbDeltree.super_.call(this, 'DbDeltree');
+    DbDeltree.super_.call(this, 'DbDeltree');
 }
 
 /**
@@ -394,7 +401,7 @@ function DbDeltree() {
  * @augments Action
  */
 function DbGet() {
-	DbGet.super_.call(this, 'DbGet');
+    DbGet.super_.call(this, 'DbGet');
 }
 
 /**
@@ -408,7 +415,7 @@ function DbGet() {
  * @augments Action
  */
 function DbPut() {
-	DbPut.super_.call(this, 'DbPut');
+    DbPut.super_.call(this, 'DbPut');
 }
 
 /**
@@ -421,7 +428,7 @@ function DbPut() {
  * @augments Action
  */
 function ExtensionState() {
-	ExtensionState.super_.call(this, 'ExtensionState');
+    ExtensionState.super_.call(this, 'ExtensionState');
 }
 
 /**
@@ -434,7 +441,7 @@ function ExtensionState() {
  * @augments Action
  */
 function GetConfig() {
-	GetConfig.super_.call(this, 'GetConfig');
+    GetConfig.super_.call(this, 'GetConfig');
 }
 
 /**
@@ -446,7 +453,7 @@ function GetConfig() {
  * @augments Action
  */
 function GetConfigJson() {
-	GetConfigJson.super_.call(this, 'GetConfigJson');
+    GetConfigJson.super_.call(this, 'GetConfigJson');
 }
 
 /**
@@ -456,7 +463,7 @@ function GetConfigJson() {
  */
 function UpdateConfig()
 {
-	UpdateConfig.super_.call(this,'UpdateConfig');
+    UpdateConfig.super_.call(this,'UpdateConfig');
 }
 
 /**
@@ -469,7 +476,7 @@ function UpdateConfig()
  * @augments Action
  */
 function GetVar() {
-	GetVar.super_.call(this, 'GetVar');
+    GetVar.super_.call(this, 'GetVar');
 }
 
 /**
@@ -483,7 +490,7 @@ function GetVar() {
  * @augments Action
  */
 function JabberSend() {
-	JabberSend.super_.call(this, 'JabberSend');
+    JabberSend.super_.call(this, 'JabberSend');
 }
 
 /**
@@ -495,7 +502,7 @@ function JabberSend() {
  * @augments Action
  */
 function ListCategories() {
-	ListCategories.super_.call(this, 'ListCategories');
+    ListCategories.super_.call(this, 'ListCategories');
 }
 
 /**
@@ -507,7 +514,7 @@ function ListCategories() {
  * @augments Action
  */
 function PauseMonitor() {
-	PauseMonitor.super_.call(this, 'PauseMonitor');
+    PauseMonitor.super_.call(this, 'PauseMonitor');
 }
 
 /**
@@ -519,7 +526,7 @@ function PauseMonitor() {
  * @augments Action
  */
 function UnpauseMonitor() {
-	UnpauseMonitor.super_.call(this, 'UnpauseMonitor');
+    UnpauseMonitor.super_.call(this, 'UnpauseMonitor');
 }
 
 /**
@@ -531,7 +538,7 @@ function UnpauseMonitor() {
  * @augments Action
  */
 function StopMonitor() {
-	StopMonitor.super_.call(this, 'StopMonitor');
+    StopMonitor.super_.call(this, 'StopMonitor');
 }
 
 
@@ -544,7 +551,7 @@ function StopMonitor() {
  * @augments Action
  */
 function LocalOptimizeAway() {
-	LocalOptimizeAway.super_.call(this, 'LocalOptimizeAway');
+    LocalOptimizeAway.super_.call(this, 'LocalOptimizeAway');
 }
 
 /**
@@ -558,7 +565,7 @@ function LocalOptimizeAway() {
  * @augments Action
  */
 function SetVar() {
-	SetVar.super_.call(this, 'SetVar');
+    SetVar.super_.call(this, 'SetVar');
 }
 
 /**
@@ -570,7 +577,7 @@ function SetVar() {
  * @augments Action
  */
 function Reload() {
-	Reload.super_.call(this, 'Reload');
+    Reload.super_.call(this, 'Reload');
 }
 
 /**
@@ -583,7 +590,7 @@ function Reload() {
  * @augments Action
  */
 function PlayDtmf() {
-	PlayDtmf.super_.call(this, 'PlayDtmf');
+    PlayDtmf.super_.call(this, 'PlayDtmf');
 }
 
 /**
@@ -598,7 +605,7 @@ function PlayDtmf() {
  * @augments Action
  */
 function Park() {
-	Park.super_.call(this, 'Park');
+    Park.super_.call(this, 'Park');
 }
 
 /**
@@ -609,7 +616,7 @@ function Park() {
  * @augments Action
  */
 function ParkedCalls() {
-	ParkedCalls.super_.call(this, 'ParkedCalls');
+    ParkedCalls.super_.call(this, 'ParkedCalls');
 }
 
 /**
@@ -622,7 +629,7 @@ function ParkedCalls() {
  * @augments Action
  */
 function Monitor() {
-	Monitor.super_.call(this, 'Monitor');
+    Monitor.super_.call(this, 'Monitor');
     this.format = 'wav';
     this.mix = 'true';
 }
@@ -636,7 +643,7 @@ function Monitor() {
  * @augments Action
  */
 function ModuleCheck() {
-	ModuleCheck.super_.call(this, 'ModuleCheck');
+    ModuleCheck.super_.call(this, 'ModuleCheck');
 }
 
 /**
@@ -648,7 +655,7 @@ function ModuleCheck() {
  * @augments Action
  */
 function ModuleLoad() {
-	ModuleLoad.super_.call(this, 'ModuleLoad');
+    ModuleLoad.super_.call(this, 'ModuleLoad');
     this.LoadType = 'load';
 }
 
@@ -661,7 +668,7 @@ function ModuleLoad() {
  * @augments Action
  */
 function ModuleUnload() {
-	ModuleUnload.super_.call(this, 'ModuleUnload');
+    ModuleUnload.super_.call(this, 'ModuleUnload');
     this.LoadType = 'unload';
 }
 
@@ -674,7 +681,7 @@ function ModuleUnload() {
  * @augments Action
  */
 function ModuleReload() {
-	ModuleReload.super_.call(this, 'ModuleReload');
+    ModuleReload.super_.call(this, 'ModuleReload');
     this.LoadType = 'reload';
 }
 
@@ -687,7 +694,7 @@ function ModuleReload() {
  * @augments Action
  */
 function MailboxCount() {
-	MailboxCount.super_.call(this, 'MailboxCount');
+    MailboxCount.super_.call(this, 'MailboxCount');
 }
 
 /**
@@ -699,7 +706,7 @@ function MailboxCount() {
  * @augments Action
  */
 function MailboxStatus() {
-	MailboxStatus.super_.call(this, 'MailboxStatus');
+    MailboxStatus.super_.call(this, 'MailboxStatus');
 }
 
 /**
@@ -710,7 +717,7 @@ function MailboxStatus() {
  * @augments Action
  */
 function VoicemailUsersList() {
-	VoicemailUsersList.super_.call(this, 'VoicemailUsersList');
+    VoicemailUsersList.super_.call(this, 'VoicemailUsersList');
 }
 
 /**
@@ -729,7 +736,7 @@ function VoicemailUsersList() {
  * @property {String} ExtraPriority Optional Priority to transfer extra channel
  */
 function Redirect() {
-	Redirect.super_.call(this, 'Redirect');
+    Redirect.super_.call(this, 'Redirect');
 }
 
 /**
@@ -743,7 +750,7 @@ function Redirect() {
  * @property {String} Tone Play courtesy tone to Channel 2 [yes/no]
  */
 function Bridge() {
-	Bridge.super_.call(this, 'Bridge');
+    Bridge.super_.call(this, 'Bridge');
 }
 
 /**
@@ -756,7 +763,7 @@ function Bridge() {
  * @augments Action
  */
 function ShowDialPlan() {
-	ShowDialPlan.super_.call(this, 'ShowDialPlan');
+    ShowDialPlan.super_.call(this, 'ShowDialPlan');
 }
 
 /**
@@ -769,7 +776,7 @@ function ShowDialPlan() {
  * @augments Action
  */
 function SendText() {
-	SendText.super_.call(this, 'SendText');
+    SendText.super_.call(this, 'SendText');
 }
 
 /**
@@ -780,7 +787,7 @@ function SendText() {
  * @augments Action
  */
 function Queues() {
-	Queues.super_.call(this, 'Queues');
+    Queues.super_.call(this, 'Queues');
 }
 
 /**
@@ -794,14 +801,14 @@ function Queues() {
  * @augments Action
  */
 function QueueUnpause(asteriskInterface, queue, reason) {
-  	QueueUnpause.super_.call(this, 'QueuePause');
+      QueueUnpause.super_.call(this, 'QueuePause');
   this.set('paused', 'false');
   this.set('interface', asteriskInterface);
-    
+
   if (undefined !== queue) {
     this.set('queue', queue);
   }
-  
+
   if (undefined !== reason) {
     this.set('reason', reason);
   }
@@ -818,14 +825,14 @@ function QueueUnpause(asteriskInterface, queue, reason) {
  * @augments Action
  */
 function QueuePause(asteriskInterface, queue, reason) {
-	QueuePause.super_.call(this, 'QueuePause');
+    QueuePause.super_.call(this, 'QueuePause');
   this.set('paused', 'true');
   this.set('interface', asteriskInterface);
-    
+
   if (undefined !== queue) {
     this.set('queue', queue);
   }
-  
+
   if (undefined !== reason) {
     this.set('reason', reason);
   }
@@ -855,7 +862,7 @@ function QueueSummary(queue) {
  * @augments Action
  */
 function QueueRule() {
-	QueueRule.super_.call(this, 'QueueRule');
+    QueueRule.super_.call(this, 'QueueRule');
 }
 
 /**
@@ -868,13 +875,13 @@ function QueueRule() {
  * @augments Action
  */
 function QueueStatus(queue, member) {
-	QueueStatus.super_.call(this, 'QueueStatus');
-	if (undefined != queue) {
-		this.set('Queue', queue);
-	}
-	if (undefined != member) {
-		this.set('Member', member);
-	}
+    QueueStatus.super_.call(this, 'QueueStatus');
+    if (undefined != queue) {
+        this.set('Queue', queue);
+    }
+    if (undefined != member) {
+        this.set('Member', member);
+    }
 }
 
 /**
@@ -886,7 +893,7 @@ function QueueStatus(queue, member) {
  * @augments Action
  */
 function QueueReset() {
-	QueueReset.super_.call(this, 'QueueReset');
+    QueueReset.super_.call(this, 'QueueReset');
 }
 
 /**
@@ -899,9 +906,9 @@ function QueueReset() {
  * @augments Action
  */
 function QueueRemove(asteriskInterface, queue) {
-	QueueRemove.super_.call(this, 'QueueRemove');
-	this.set('interface', asteriskInterface);
-	this.set('queue', queue);
+    QueueRemove.super_.call(this, 'QueueRemove');
+    this.set('interface', asteriskInterface);
+    this.set('queue', queue);
 }
 
 /**
@@ -939,18 +946,18 @@ function Originate() {
  * @augments Action
  */
 function QueueAdd(asteriskInterface, queue, paused, memberName, penalty) {
-	QueueAdd.super_.call(this, 'QueueAdd');
-	this.set('interface', asteriskInterface);
-	this.set('queue', queue);
-	if (undefined !== paused) {
-		this.set('paused', paused);
-	}
-	if (undefined !== memberName) {
-		this.set('membername', memberName);
-	}
-	if (undefined !== penalty) {
-		this.set('penalty', penalty);
-	}
+    QueueAdd.super_.call(this, 'QueueAdd');
+    this.set('interface', asteriskInterface);
+    this.set('queue', queue);
+    if (undefined !== paused) {
+        this.set('paused', paused);
+    }
+    if (undefined !== memberName) {
+        this.set('membername', memberName);
+    }
+    if (undefined !== penalty) {
+        this.set('penalty', penalty);
+    }
 }
 
 /**
@@ -966,10 +973,10 @@ function QueueAdd(asteriskInterface, queue, paused, memberName, penalty) {
  * @augments Action
  */
 function QueueLog() {
-	QueueLog.super_.call(this, 'QueueLog');
+    QueueLog.super_.call(this, 'QueueLog');
 }
 
-/** 
+/**
  * MeetmeList Action.
  * @constructor
  * @see Action(String)
@@ -981,7 +988,7 @@ function QueueLog() {
      this.set('Conference', conference);
    }
  }
- 
+
  /**
   * MeetmeMute Action.
   * @constructor
@@ -993,7 +1000,7 @@ function QueueLog() {
    this.set('Meetme', meetme);
    this.set('Usernum', usernum);
  }
-  
+
 /**
  * MeetmeUnmute Action.
  * @constructor
@@ -1033,7 +1040,7 @@ function ConfbridgeList(conference) {
  * @constructor
  * @see Action(String)
  * @param {String} conference room. The value of the "conference" key.
- * @param {String} Channel. The value of the "Channel" key. 
+ * @param {String} Channel. The value of the "Channel" key.
  * @augments Action
  */
 function ConfbridgeKick(conference, channel) {
@@ -1071,7 +1078,7 @@ function ConfbridgeUnlock(conference) {
  * @constructor
  * @see Action(String)
  * @param {String} conference room. The value of the "conference" key.
- * @param {String} Channel. The value of the "Channel" key. 
+ * @param {String} Channel. The value of the "Channel" key.
  * @augments Action
  */
 function ConfbridgeMute(conference, channel) {
@@ -1085,7 +1092,7 @@ function ConfbridgeMute(conference, channel) {
  * @constructor
  * @see Action(String)
  * @param {String} conference room. The value of the "conference" key.
- * @param {String} Channel. The value of the "Channel" key. 
+ * @param {String} Channel. The value of the "Channel" key.
  * @augments Action
  */
 function ConfbridgeUnmute(conference, channel) {
@@ -1100,7 +1107,7 @@ function ConfbridgeUnmute(conference, channel) {
  * @see Action(String)
  * @see https://wiki.asterisk.org/wiki/display/AST/ManagerAction_AGI
  * @param {String} Channel that is currently in Async AGI.
- * @param {String} Application to execute. 
+ * @param {String} Application to execute.
  * @param {String} This will be sent back in CommandID header of AsyncAGI exec event notification.
  * @augments Action
  */
@@ -1138,9 +1145,9 @@ function BlindTransfer(channel, context, extension) {
  * @augments Action
  */
 function Filter(operation, filter) {
-	Filter.super_.call(this, 'Filter');
-	this.set('Operation', operation);
-	this.set('Filter', filter);
+    Filter.super_.call(this, 'Filter');
+    this.set('Operation', operation);
+    this.set('Filter', filter);
 }
 
 /**
@@ -1150,8 +1157,8 @@ function Filter(operation, filter) {
  * @see See https://wiki.asterisk.org/wiki/display/AST/Asterisk+11+ManagerAction_Events
  */
 function Events(mask) {
-	Events.super_.call(this, 'Events');
-	this.set('Eventmask', mask);
+    Events.super_.call(this, 'Events');
+    this.set('Eventmask', mask);
 }
 
 // Inheritance for this module
@@ -1171,6 +1178,7 @@ util.inherits(Action, message.Message);
         ListCommands,
         AbsoluteTimeout,
         SipShowPeer,
+        SIPpeerstatus,
         SipShowRegistry,
         SipQualifyPeer,
         SipPeers,
@@ -1192,7 +1200,7 @@ util.inherits(Action, message.Message);
         ExtensionState,
         GetConfig,
         GetConfigJson,
-		UpdateConfig,
+        UpdateConfig,
         GetVar,
         SetVar,
         JabberSend,
@@ -1247,5 +1255,3 @@ util.inherits(Action, message.Message);
         exports[actions[i].name] = actions[i];
     }
 })();
-
-
