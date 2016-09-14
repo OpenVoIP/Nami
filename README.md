@@ -261,3 +261,8 @@ making reconnections a breeze.
     SIPpeerstatus
     UpdateConfig
 -  删除冗余日志
+
+# 2016-09-14
+合并 0.7.2 版本到当前仓库，主要修改内容
+* 删除log4j 依赖
+* action 添加了部分指令
