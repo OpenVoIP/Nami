@@ -16,12 +16,11 @@
  * limitations under the License.
  *
  */
-var logger = require("log4js").getLogger('Nami.App');
 var namiLib = require(__dirname + "/nami.js");
 
 if (process.argv.length !== 6) {
-    logger.fatal("Use: <host> <port> <user> <secret>");
-    process.exit();
+	console.log("Use: <host> <port> <user> <secret>");
+	process.exit();
 }
 
 var namiConfig = {
@@ -37,26 +36,24 @@ process.on('SIGINT', function () {
     process.exit();
 });
 nami.on('namiConnectionClose', function (data) {
-    logger.debug('Reconnecting...');
-    setTimeout(function () {
-        nami.open();
-    }, 5000);
+    console.log('Reconnecting...');
+    setTimeout(function () { nami.open(); }, 5000);
 });
 
 nami.on('namiInvalidPeer', function (data) {
-    logger.fatal("Invalid AMI Salute. Not an AMI?");
-    process.exit();
+	console.log("Invalid AMI Salute. Not an AMI?");
+	process.exit();
 });
 nami.on('namiLoginIncorrect', function () {
-    logger.fatal("Invalid Credentials");
-    process.exit();
+	console.log("Invalid Credentials");
+	process.exit();
 });
 nami.on('namiEvent', function (event) {
-    logger.debug('Got Event: ' + util.inspect(event));
+    console.log('Got Event: ' + util.inspect(event));
 });
 function standardSend(action) {
     nami.send(action, function (response) {
-        logger.debug(' ---- Response: ' + util.inspect(response));
+        console.log(' ---- Response: ' + util.inspect(response));
     });
 }
 

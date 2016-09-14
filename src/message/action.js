@@ -612,11 +612,28 @@ function Park() {
  * ParkedCalls Action.
  * @constructor
  * @see Action(String)
- * @see See <a href="https://wiki.asterisk.org/wiki/display/AST/ManagerAction_ParkedCalls">https://wiki.asterisk.org/wiki/display/AST/ManagerAction_ParkedCalls</a>.
+ * @see See <a href="https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+ManagerAction_ParkedCalls">https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+ManagerAction_ParkedCalls</a>.
+ * @property {String} ParkingLot Optional parking lot to view
  * @augments Action
  */
-function ParkedCalls() {
-    ParkedCalls.super_.call(this, 'ParkedCalls');
+function ParkedCalls(lot) {
+	ParkedCalls.super_.call(this, 'ParkedCalls');
+
+    if (undefined !== lot) {
+        this.set('ParkingLot', lot);
+    }
+
+}
+
+/**
+ * Parkinglots Action.
+ * @constructor
+ * @see Action(String)
+ * @see See <a href="https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+ManagerAction_Parkinglots">https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+ManagerAction_Parkinglots</a>.
+ * @augments Action
+ */
+function Parkinglots() {
+	Parkinglots.super_.call(this, 'Parkinglots');
 }
 
 /**
@@ -788,6 +805,37 @@ function SendText() {
  */
 function Queues() {
     Queues.super_.call(this, 'Queues');
+}
+
+/**
+ * QueueReload Action.
+ * @constructor
+ * @see Action(String)
+ * @see See <a href="https://wiki.asterisk.org/wiki/display/AST/ManagerAction_QueueReload">https://wiki.asterisk.org/wiki/display/AST/ManagerAction_QueueReload</a>.
+ * @property {String} Queue Optional, Queue
+ * @property {String} Members Optional, yes/no
+ * @property {String} Rules Optional, yes/no
+ * @property {String} Parameters Optional, yes/no
+ * @augments Action
+ */
+function QueueReload(queue, members, rules, parameters) {
+  QueueReload.super_.call(this, 'QueueReload');
+
+  if (undefined !== queue) {
+    this.set('queue', queue);
+  }
+
+  if (undefined !== members) {
+    this.set('members', members);
+  }
+
+  if (undefined !== rules) {
+    this.set('rules', rules);
+  }
+
+  if (undefined !== parameters) {
+    this.set('parameters', parameters);
+  }
 }
 
 /**
@@ -1151,6 +1199,19 @@ function Filter(operation, filter) {
 }
 
 /**
+ * UserEvent Action.
+ * @constructor
+ * @param {String} UserEvent. The name of the event.
+ * @see Action(String)
+ * @see See <a href="https://wiki.asterisk.org/wiki/display/AST/Asterisk+11+ManagerAction_UserEvent">https://wiki.asterisk.org/wiki/display/AST/Asterisk+11+ManagerAction_UserEvent</a>.
+ * @augments Action
+ */
+function UserEvent(event) {
+	UserEvent.super_.call(this, 'UserEvent');
+	this.set('UserEvent', event);
+}
+
+/**
  *
  * @param mask
  * @constructor
@@ -1211,6 +1272,7 @@ util.inherits(Action, message.Message);
         PlayDtmf,
         Park,
         ParkedCalls,
+        Parkinglots,
         Monitor,
         ModuleCheck,
         ModuleLoad,
@@ -1229,12 +1291,14 @@ util.inherits(Action, message.Message);
         Queues,
         QueueUnpause,
         QueuePause,
+        QueueReset,
         QueueSummary,
         QueueStatus,
         QueueRemove,
         QueueRule,
         QueueAdd,
         QueueLog,
+        QueueReload,
         MeetmeList,
         MeetmeMute,
         MeetmeUnmute,
@@ -1248,7 +1312,8 @@ util.inherits(Action, message.Message);
         AGI,
         BlindTransfer,
         Filter,
-        Events
+        Events,
+        UserEvent
     ];
     for (i in actions) {
         util.inherits(actions[i], Action);

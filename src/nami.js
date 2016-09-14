@@ -35,16 +35,25 @@ var timer = require('timers');
 /**
  * Nami client.
  * @constructor
- * @param amiData The configuration for ami.
+ * @param {object} amiData The configuration for ami.
  * @augments EventEmitter
  */
 function Nami(amiData, level) {
+    var self = this;
     Nami.super_.call(this);
-    var log4js = require('log4js');
-    this.logger = log4js.getLogger('Nami.Client');
-    if(level) {
-        this.logger.setLevel(level);
-    }
+    this.logLevel = level || 3; // debug level by default.
+
+    var genericLog = function(minLevel, fun, msg) {
+        if(self.logLevel >= minLevel) {
+            fun(msg);
+        }
+    };
+    this.logger = amiData.logger || {
+        error: function(msg) { genericLog(0, console.error, msg)},
+        warn: function(msg) { genericLog(1, console.warn, msg)},
+        info: function(msg) { genericLog(2, console.info, msg)},
+        debug: function(msg) { genericLog(3, console.log, msg)}
+    };
     this.connected = false;
     this.amiData = amiData;
     this.EOL = "\r\n";
