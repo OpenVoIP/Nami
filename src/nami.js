@@ -58,8 +58,12 @@ function Nami(amiData, level) {
     this.amiData = amiData;
     this.EOL = "\r\n";
     this.EOM = this.EOL + this.EOL;
+<<<<<<< HEAD
     // for zycoo 
     this.welcomeMessage = `(Asterisk Call Manager/.*${this.EOL})|(VoIP API/AMI/.*${this.EOL})`;
+=======
+    this.welcomeMessage = "Asterisk Call Manager.*/.*" + this.EOL;
+>>>>>>> 3e9660be665f1345cb945ce3d45e2ee07b200349
     this.received = false;
     this.responses = {};
     this.callbacks = {};
