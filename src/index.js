@@ -16,28 +16,30 @@
  * limitations under the License.
  *
  */
-var namiLib = require(__dirname + "/nami.js");
+let namiLib = require(__dirname + "/nami.js");
+const util = require('util');
 
 if (process.argv.length !== 6) {
 	console.log("Use: <host> <port> <user> <secret>");
 	process.exit();
 }
 
-var namiConfig = {
+let namiConfig = {
     host: process.argv[2],
     port: process.argv[3],
     username: process.argv[4],
     secret: process.argv[5]
 };
 
-var nami = new namiLib.Nami(namiConfig, 'ERROR');
+let nami = new namiLib.Nami(namiConfig, 'ERROR');
 process.on('SIGINT', function () {
     nami.close();
+    console.log('SIGINT...');
     process.exit();
 });
 nami.on('namiConnectionClose', function (data) {
     console.log('Reconnecting...');
-    setTimeout(function () { nami.open(); }, 5000);
+    setTimeout( () => nami.open(), 5000);
 });
 
 nami.on('namiInvalidPeer', function (data) {
@@ -49,11 +51,11 @@ nami.on('namiLoginIncorrect', function () {
 	process.exit();
 });
 nami.on('namiEvent', function (event) {
-    console.log('Got Event: ' + util.inspect(event));
+    console.log(`Got Event: ${util.inspect(event)}`);
 });
 function standardSend(action) {
     nami.send(action, function (response) {
-        console.log(' ---- Response: ' + util.inspect(response));
+        console.log(`Response: ${util.inspect(response)}`);
     });
 }
 
@@ -66,7 +68,7 @@ nami.on('namiConnected', function (event) {
     standardSend(new namiLib.Actions.DahdiShowChannels());
     standardSend(new namiLib.Actions.ListCommands());
 
-    var action = new namiLib.Actions.Hangup();
+    let action = new namiLib.Actions.Hangup();
     action.channel = "SIP/asdasd";
     standardSend(action);
 

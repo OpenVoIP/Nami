@@ -22,8 +22,8 @@
  * @author Marcelo Gornstein - http://marcelog.github.com
  * Website: http://marcelog.github.com/Nami
  */
-message = require(__dirname + '/message.js');
-util = require('util');
+const util = require('util');
+let message = require(__dirname + '/message.js');
 
 /**
  * Base action class. Every action sent to AMI must be one of these.
@@ -40,9 +40,9 @@ function Action(name) {
     this.set('Action', name);
 }
 
-var ActionUniqueId = (function() {
-    var nextId = 0;
-    return function() {
+let ActionUniqueId = (() => {
+    let nextId = 0;
+    return () => {
         return nextId++;
     }
 })();
@@ -1225,8 +1225,8 @@ function Events(mask) {
 // Inheritance for this module
 util.inherits(Action, message.Message);
 (function() {
-    var i;
-    var actions = [
+    let i;
+    let actions = [
         Login,
         Logoff,
         Ping,

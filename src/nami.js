@@ -24,13 +24,13 @@
  * Website: http://marcelog.github.com/Nami
  */
 
-var net = require('net');
-var events = require('events');
-var action = require(__dirname + '/message/action.js');
-var namiResponse = require(__dirname + '/message/response.js');
-var util = require('util');
-var namiEvents = require(__dirname + '/message/event.js');
-var timer = require('timers');
+const net = require('net');
+const events = require('events');
+const util = require('util');
+const timer = require('timers');
+const action = require(__dirname + '/message/action.js');
+const namiResponse = require(__dirname + '/message/response.js');
+const namiEvents = require(__dirname + '/message/event.js');
 
 /**
  * Nami client.
@@ -39,26 +39,27 @@ var timer = require('timers');
  * @augments EventEmitter
  */
 function Nami(amiData, level) {
-    var self = this;
+    let self = this;
     Nami.super_.call(this);
     this.logLevel = level || 3; // debug level by default.
 
-    var genericLog = function(minLevel, fun, msg) {
+    let genericLog = (minLevel, fun, msg) => {
         if(self.logLevel >= minLevel) {
             fun(msg);
         }
     };
     this.logger = amiData.logger || {
-        error: function(msg) { genericLog(0, console.error, msg)},
-        warn: function(msg) { genericLog(1, console.warn, msg)},
-        info: function(msg) { genericLog(2, console.info, msg)},
-        debug: function(msg) { genericLog(3, console.log, msg)}
+        error: (msg) => { genericLog(0, console.error, msg)},
+        warn: (msg) => { genericLog(1, console.warn, msg)},
+        info: (msg) => { genericLog(2, console.info, msg)},
+        debug: (msg) => { genericLog(3, console.log, msg)}
     };
     this.connected = false;
     this.amiData = amiData;
     this.EOL = "\r\n";
     this.EOM = this.EOL + this.EOL;
-    this.welcomeMessage = "Asterisk Call Manager/.*" + this.EOL;
+    // for zycoo 
+    this.welcomeMessage = `(Asterisk Call Manager/.*${this.EOL})|(VoIP API/AMI/.*${this.EOL})`;
     this.received = false;
     this.responses = {};
     this.callbacks = {};
@@ -81,7 +82,7 @@ util.inherits(Nami, events.EventEmitter);
  * @returns void
  */
 Nami.prototype.onRawEvent = function (event) {
-    this.logger.debug('Got event: ' + util.inspect(event));
+    this.logger.debug(`Got event:${util.inspect(event)}`);
     if (
         typeof (event.actionid) !== 'undefined'
         && typeof (this.responses[event.actionid]) !== 'undefined'
@@ -114,7 +115,7 @@ Nami.prototype.onRawEvent = function (event) {
  * @returns void
  */
 Nami.prototype.onRawResponse = function (response) {
-    this.logger.debug('Got response: ' + util.inspect(response));
+    this.logger.debug(`Got response: ${util.inspect(response)}`);
     if (
         (typeof (response.message) !== 'undefined')
         && (response.message.indexOf('follow') !== -1)
@@ -136,8 +137,8 @@ Nami.prototype.onRawResponse = function (response) {
  * @returns void
  */
 Nami.prototype.onRawMessage = function (buffer) {
-    var response, event;
-    this.logger.debug('Building raw message: ' + util.inspect(buffer));
+    let response, event;
+    this.logger.debug(`Building raw message: ${util.inspect(buffer)}`);
     if (buffer.match(/^Event: /) !== null) {
         event = new namiEvents.Event(buffer);
         this.emit('namiRawEvent', event);
@@ -157,16 +158,16 @@ Nami.prototype.onRawMessage = function (buffer) {
  * @returns void
  */
 Nami.prototype.onData = function (data) {
-    var theEOM = -1, msg;
-    this.logger.debug('Got data: ' + util.inspect(data));
+    this.logger.debug(`Got data: ${util.inspect(data)}`);
+    let theEOM = -1, msg;
     this.received = this.received.concat(data);
     theEOM = -1;
     while ((theEOM = this.received.indexOf(this.EOM)) !== -1) {
         msg = this.received.substr(0, theEOM);
         this.emit('namiRawMessage', msg);
-        var startOffset = theEOM + this.EOM.length;
-        var skippedEolChars = 0;
-        var nextChar = this.received.substr(startOffset + skippedEolChars, 1);
+        let startOffset = theEOM + this.EOM.length;
+        let skippedEolChars = 0;
+        let nextChar = this.received.substr(startOffset + skippedEolChars, 1);
         while (nextChar === "\r" || nextChar === "\n") {
             skippedEolChars++;
             nextChar = this.received.substr(startOffset + skippedEolChars, 1);
@@ -201,18 +202,18 @@ Nami.prototype.onClosed = function () {
  * @returns void
  */
 Nami.prototype.onWelcomeMessage = function (data) {
-    var self = this, welcome;
-    this.logger.debug('Got welcome message: ' + util.inspect(data));
-    var re = new RegExp(this.welcomeMessage, "");
+    this.logger.debug(`Got welcome message: ${util.inspect(data)}`);
+    let self = this, welcome;
+    let re = new RegExp(this.welcomeMessage, "");
     if (data.match(re) === null) {
         this.emit('namiInvalidPeer', data);
     } else {
-        this.socket.on('data', function (data) {
+        this.socket.on('data',  (data) => {
             self.onData(data);
         });
         this.send(
             new action.Login(this.amiData.username, this.amiData.secret),
-            function (response) {
+             (response) => {
                 if (response.response !== 'Success') {
                     self.emit('namiLoginIncorrect');
                 } else {
@@ -227,8 +228,8 @@ Nami.prototype.onWelcomeMessage = function (data) {
  * @returns void
  */
 Nami.prototype.close = function () {
-    var self = this;
-    this.send(new action.Logoff(), function () {
+    let self = this;
+    this.send(new action.Logoff(),  () => {
         self.logger.info('Logged out');
     });
     this.logger.info('Closing connection');
@@ -254,7 +255,7 @@ Nami.prototype.open = function () {
  */
 Nami.prototype.initializeSocket = function () {
     this.logger.debug('Initializing socket');
-    var self = this;
+    let self = this;
 
     if (this.socket && !this.socket.destroyed) {
         this.socket.removeAllListeners();
@@ -264,19 +265,19 @@ Nami.prototype.initializeSocket = function () {
     this.socket = new net.Socket();
     this.socket.setEncoding('utf8');
 
-    var baseEvent = 'namiConnection';
+    let baseEvent = 'namiConnection';
 
     this.socket.on('connect', function () {
         self.logger.debug('Socket connected');
         self.onConnect();
-        var event = {event: 'Connect'};
+        let event = {event: 'Connect'};
         self.emit(baseEvent + event.event, event);
     });
 
     // @param {Error} error Fires right before the `close` event
     this.socket.on('error', function (error) {
         self.logger.debug('Socket error: ' + util.inspect(error));
-        var event = {event: 'Error', error: error};
+        let event = {event: 'Error', error: error};
         self.emit(baseEvent + event.event, event);
     });
 
@@ -284,19 +285,19 @@ Nami.prototype.initializeSocket = function () {
     this.socket.on('close', function (had_error) {
         self.logger.debug('Socket closed');
         self.onClosed();
-        var event = {event: 'Close', had_error: had_error};
+        let event = {event: 'Close', had_error: had_error};
         self.emit(baseEvent + event.event, event);
     });
 
     this.socket.on('timeout', function () {
         self.logger.debug('Socket timeout');
-        var event = {event: 'Timeout'};
+        let event = {event: 'Timeout'};
         self.emit(baseEvent + event.event, event);
     });
 
     this.socket.on('end', function () {
         self.logger.debug('Socket ended');
-        var event = {event: 'End'};
+        let event = {event: 'End'};
         self.emit(baseEvent + event.event, event);
     });
 

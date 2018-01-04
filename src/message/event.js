@@ -22,8 +22,8 @@
  * @author Marcelo Gornstein - http://marcelog.github.com
  * Website: http://marcelog.github.com/Nami
  */
-message = require(__dirname + '/message.js');
-util = require('util');
+const util = require('util');
+let message = require(__dirname + '/message.js');
 
 /**
  * Base event class. Every async event from the server ends up being an Event()

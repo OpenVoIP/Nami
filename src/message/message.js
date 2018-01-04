@@ -40,7 +40,7 @@ function Message() {
  * @returns {String}
  */
 Message.prototype.marshall = function () {
-    var output = "", key;
+    let output = "", key;
     for (key in this) {
         if (key === 'variables') {
             continue;
@@ -65,7 +65,7 @@ Message.prototype.marshall = function () {
  * @returns void
  */
 Message.prototype.unmarshall = function (data) {
-    var value, parts, key, line = 0;
+    let value, parts, key, line = 0;
     this.lines = data.split(this.EOL);
     for (; line < this.lines.length; line = line + 1) {
         parts = this.lines[line].split(":");
@@ -82,13 +82,13 @@ Message.prototype.unmarshall = function (data) {
         } else if (parts.length === 1) {
             value = parts[0];
         }
-        var keySafe = key.replace(/-/, '_').toLowerCase();
-        var valueSafe = value.replace(/^\s+/g, '').replace(/\s+$/g, '');
+        let keySafe = key.replace(/-/, '_').toLowerCase();
+        let valueSafe = value.replace(/^\s+/g, '').replace(/\s+$/g, '');
         /*
-         * SetVar contains Variable: header, but value should not include '=' in this case
+         * Setlet contains Variable: header, but value should not include '=' in this case
          */
         if (keySafe.match(/variable/) !== null && valueSafe.match(/=/) !== null) {
-            var variable = valueSafe.split("=");
+            let variable = valueSafe.split("=");
             this.variables[variable[0]] = variable[1];
         } else {
             this.set(keySafe, valueSafe);
