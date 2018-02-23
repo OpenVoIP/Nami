@@ -266,3 +266,7 @@ making reconnections a breeze.
 合并 0.7.2 版本到当前仓库，主要修改内容
 * 删除log4j 依赖
 * action 添加了部分指令
+
+# 2018-02-23
+* es6 代码风格
+* AMI 响应包括 "VoIP API/AMI/2.0.0"
