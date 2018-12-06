@@ -433,6 +433,19 @@ function ExtensionState() {
 }
 
 /**
+ * ExtensionStateList Action.
+ * @constructor
+ * @see Action(String)
+ * @see See <a href="https://wiki.asterisk.org/wiki/display/AST/ManagerAction_ExtensionStateList">https://wiki.asterisk.org/wiki/display/AST/ManagerAction_ExtensionStateList</a>.
+ * @property {String} Exten Extension
+ * @property {String} Context Context of the extension
+ * @augments Action
+ */
+function ExtensionStateList() {
+    ExtensionStateList.super_.call(this, 'ExtensionStateList');
+}
+
+/**
  * GetConfig Action.
  * @constructor
  * @see Action(String)
@@ -1260,6 +1273,7 @@ util.inherits(Action, message.Message);
         DbGet,
         DbPut,
         ExtensionState,
+        ExtensionStateList,
         GetConfig,
         GetConfigJson,
         UpdateConfig,
