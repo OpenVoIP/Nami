@@ -16,6 +16,7 @@
  * limitations under the License.
  *
  */
+'use strict';
 let namiLib = require(__dirname + "/nami.js");
 const util = require('util');
 

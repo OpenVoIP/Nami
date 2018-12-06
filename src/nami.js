@@ -23,7 +23,7 @@
  * @author Marcelo Gornstein - http://marcelog.github.com
  * Website: http://marcelog.github.com/Nami
  */
-
+'use strict';
 const net = require('net');
 const events = require('events');
 const util = require('util');
@@ -58,7 +58,7 @@ function Nami(amiData, level) {
     this.amiData = amiData;
     this.EOL = "\r\n";
     this.EOM = this.EOL + this.EOL;
-    // for zycoo 
+    // for zycoo
     this.welcomeMessage = `(Asterisk Call Manager/.*${this.EOL})|(VoIP API/AMI/.*${this.EOL})`;
     this.received = false;
     this.responses = {};

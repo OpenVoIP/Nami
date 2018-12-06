@@ -22,6 +22,7 @@
  * @author Marcelo Gornstein - http://marcelog.github.com
  * Website: http://marcelog.github.com/Nami
  */
+'use strict';
 const util = require('util');
 let message = require(__dirname + '/message.js');
 

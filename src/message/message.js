@@ -22,7 +22,7 @@
  * @author Marcelo Gornstein - http://marcelog.github.com
  * Website: http://marcelog.github.com/Nami
  */
-
+'use strict';
 /**
  * Base message class.
  * @constructor
