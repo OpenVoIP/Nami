@@ -2,8 +2,8 @@
   "author": "tqcenglish <tqcenglish@gmail.com> (http://tqcenglish.github.com/)",
   "name": "nami-cc",
   "description": "fork https://github.com/marcelog/Nami An asterisk manager interface client, uses EventEmitter to communicate events, will allow you to send actions, and receive responses (and associated events), and also receive async events from server",
-  "version": "1.0.4",
-  "homepage": "https://github.com/tqcenglish/Nami",
+  "version": "1.0.5",
+  "homepage": "https://github.com/OpenVoIP/Nami",
   "keywords": [
     "asterisk",
     "manager",
@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:tqcenglish/Nami.git"
+    "url": "git@github.com:OpenVoIP/Nami.git"
   },
   "main": "src/nami",
   "scripts": {
