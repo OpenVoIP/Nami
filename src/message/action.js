@@ -1185,16 +1185,16 @@ function AGI(channel, command, commandId) {
  * @constructor
  * @see Action(String)
  * @see https://wiki.asterisk.org/wiki/display/AST/Asterisk+12+ManagerAction_BlindTransfer
- * @param {String} Source channel that wants to transfer the target channel.
+ * @param {String} Channel channel that wants to transfer the target channel.
  * @param {String} Context to transfer the target channel to.
- * @param {String} Extension inside the context to transfer the target channel to.
+ * @param {String} Exten inside the context to transfer the target channel to.
  * @augments Action
  */
-function BlindTransfer(channel, context, extension) {
+function BlindTransfer(channel, context, exten) {
   BlindTransfer.super_.call(this, 'BlindTransfer');
   this.set('Channel', channel);
   this.set('Context', context);
-  this.set('Exten', extension);
+  this.set('Exten', exten);
 }
 
 /**
