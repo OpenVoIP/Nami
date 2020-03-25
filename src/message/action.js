@@ -1236,6 +1236,13 @@ function Events(mask) {
     this.set('Eventmask', mask);
 }
 
+/**
+ * List the current known presence states.
+ */
+function PresenceStateList() {
+    Events.super_.call(this, 'PresenceStateList');
+}
+
 // Inheritance for this module
 util.inherits(Action, message.Message);
 (function() {
@@ -1328,6 +1335,7 @@ util.inherits(Action, message.Message);
         BlindTransfer,
         Filter,
         Events,
+	PresenceStateList,
         UserEvent
     ];
     for (i in actions) {
