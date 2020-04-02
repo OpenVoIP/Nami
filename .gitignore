@@ -1,7 +1,5 @@
 .project
 .settings
-.buildpath
 build
-src/node_modules
 .idea
 node_modules
