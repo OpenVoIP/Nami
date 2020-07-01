@@ -231,6 +231,150 @@ function SipPeers() {
 }
 
 /**
+ * PJSIPNotify Action.
+ * @constructor
+ * @see Action(String)
+ * @augments Action
+ */
+function PJSIPNotify() {
+    PJSIPNotify.super_.call(this, 'PJSIPNotify');
+}
+
+/**
+ * PJSIPQualify Action.
+ * @constructor
+ * @see Action(String)
+ * @augments Action
+ */
+function PJSIPQualify() {
+    PJSIPQualify.super_.call(this, 'PJSIPQualify');
+}
+
+/**
+ * PJSIPRegister Action.
+ * @constructor
+ * @see Action(String)
+ * @augments Action
+ */
+function PJSIPRegister() {
+    PJSIPRegister.super_.call(this, 'PJSIPRegister');
+}
+
+
+/**
+ * PJSIPShowAors Action.
+ * @constructor
+ * @see Action(String)
+ * @augments Action
+ */
+function PJSIPShowAors() {
+    PJSIPShowAors.super_.call(this, 'PJSIPShowAors');
+}
+
+/**
+ * PJSIPShowAuths Action.
+ * @constructor
+ * @see Action(String)
+ * @augments Action
+ */
+function PJSIPShowAuths() {
+    PJSIPShowAuths.super_.call(this, 'PJSIPShowAuths');
+}
+
+/**
+ * PJSIPShowContacts Action.
+ * @constructor
+ * @see Action(String)
+ * @augments Action
+ */
+function PJSIPShowContacts() {
+    PJSIPShowContacts.super_.call(this, 'PJSIPShowContacts');
+}
+
+/**
+ * PJSIPShowEndpoint Action.
+ * @constructor
+ * @see Action(String)
+ * @augments Action
+ */
+function PJSIPShowEndpoint() {
+    PJSIPShowEndpoint.super_.call(this, 'PJSIPShowEndpoint');
+}
+
+/**
+ * PJSIPShowEndpoints Action.
+ * @constructor
+ * @see Action(String)
+ * @augments Action
+ */
+function PJSIPShowEndpoints() {
+    PJSIPShowEndpoints.super_.call(this, 'PJSIPShowEndpoints');
+}
+
+/**
+ * PJSIPShowRegistrationInboundContactStatuses Action.
+ * @constructor
+ * @see Action(String)
+ * @augments Action
+ */
+function PJSIPShowRegistrationInboundContactStatuses() {
+    PJSIPShowRegistrationInboundContactStatuses.super_.call(this, 'PJSIPShowRegistrationInboundContactStatuses');
+}
+/**
+ * PJSIPShowRegistrationsInbound Action.
+ * @constructor
+ * @see Action(String)
+ * @augments Action
+ */
+function PJSIPShowRegistrationsInbound() {
+    PJSIPShowRegistrationsInbound.super_.call(this, 'PJSIPShowRegistrationsInbound');
+}
+/**
+ * PJSIPShowRegistrationsOutbound Action.
+ * @constructor
+ * @see Action(String)
+ * @augments Action
+ */
+function PJSIPShowRegistrationsOutbound() {
+    PJSIPShowRegistrationsOutbound.super_.call(this, 'PJSIPShowRegistrationsOutbound');
+}
+/**
+ * PJSIPShowResourceLists Action.
+ * @constructor
+ * @see Action(String)
+ * @augments Action
+ */
+function PJSIPShowResourceLists() {
+    PJSIPShowResourceLists.super_.call(this, 'PJSIPShowResourceLists');
+}
+/**
+ * PJSIPShowSubscriptionsInbound Action.
+ * @constructor
+ * @see Action(String)
+ * @augments Action
+ */
+function PJSIPShowSubscriptionsInbound() {
+    PJSIPShowSubscriptionsInbound.super_.call(this, 'PJSIPShowSubscriptionsInbound');
+}
+/**
+ * PJSIPShowSubscriptionsOutbound Action.
+ * @constructor
+ * @see Action(String)
+ * @augments Action
+ */
+function PJSIPShowSubscriptionsOutbound() {
+    PJSIPShowSubscriptionsOutbound.super_.call(this, 'PJSIPShowSubscriptionsOutbound');
+}
+/**
+ * PJSIPUnregister Action.
+ * @constructor
+ * @see Action(String)
+ * @augments Action
+ */
+function PJSIPUnregister() {
+    PJSIPUnregister.super_.call(this, 'PJSIPUnregister');
+}
+/**
  * AgentLogoff Action.
  * @constructor
  * @see Action(String)
@@ -1246,7 +1390,6 @@ function PresenceStateList() {
 // Inheritance for this module
 util.inherits(Action, message.Message);
 (function() {
-    let i;
     let actions = [
         Login,
         Logoff,
@@ -1264,6 +1407,23 @@ util.inherits(Action, message.Message);
         SipShowRegistry,
         SipQualifyPeer,
         SipPeers,
+
+        PJSIPNotify,
+        PJSIPQualify,
+        PJSIPRegister,
+        PJSIPShowAors,
+        PJSIPShowAuths,
+        PJSIPShowContacts,
+        PJSIPShowEndpoint,
+        PJSIPShowEndpoints,
+        PJSIPShowRegistrationInboundContactStatuses,
+        PJSIPShowRegistrationsInbound,
+        PJSIPShowRegistrationsOutbound,
+        PJSIPShowResourceLists,
+        PJSIPShowSubscriptionsInbound,
+        PJSIPShowSubscriptionsOutbound,
+        PJSIPUnregister,
+
         AgentLogoff,
         Agents,
         AttendedTransfer,
@@ -1335,10 +1495,10 @@ util.inherits(Action, message.Message);
         BlindTransfer,
         Filter,
         Events,
-	PresenceStateList,
+	    PresenceStateList,
         UserEvent
     ];
-    for (i in actions) {
+    for (let i in actions) {
         util.inherits(actions[i], Action);
         exports[actions[i].name] = actions[i];
     }
