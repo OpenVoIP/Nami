@@ -116,9 +116,10 @@ Nami.prototype.onRawEvent = function (event) {
  */
 Nami.prototype.onRawResponse = function (response) {
     this.logger.debug(`Got response: ${util.inspect(response)}`);
+
     if (
         (typeof (response.message) !== 'undefined')
-        && (response.message.indexOf('follow') !== -1)
+        && (response.message.toLowerCase().indexOf('follow') !== -1)
     ) {
         this.responses[response.actionid] = response;
     } else if (typeof (this.callbacks[response.actionid]) !== 'undefined') {
